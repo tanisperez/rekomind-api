@@ -1,0 +1,129 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.0.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.github.tanisperez.recommender</groupId>
+	<artifactId>api</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>Recommender API Gateway</name>
+	<description>Recommender API Gateway</description>
+
+	<!-- Properties -->
+	<properties>
+		<!-- General Config -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>11</java.version>
+		<user.language>es</user.language>
+		<argLine>-Duser.language=${user.language}</argLine>
+		
+		<!-- Dependencies version -->
+		<apache-commons-lang3.version>3.11</apache-commons-lang3.version>
+		<apache-commons-collections4.version>4.4</apache-commons-collections4.version>
+	</properties>
+
+	<dependencies>
+		<!-- Spring Boot Starter WebFlux -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+			<exclusions>
+				<!-- Spring Default Logging -->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Log4J2 Spring Boot Starter -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+		
+		<!-- Apache Commons Lang 3 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>${apache-commons-lang3.version}</version>
+		</dependency>
+		
+		<!-- Apache Commons Collections 4 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-collections4</artifactId>
+		    <version>${apache-commons-collections4.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!-- Profiles -->
+	<profiles>
+		<!-- DEV -->
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<profile.id>dev</profile.id>
+				<profile.name>Development</profile.name>
+			</properties>
+		</profile>
+		<!-- PRE -->
+		<profile>
+			<id>pre</id>
+			<properties>
+				<profile.id>pre</profile.id>
+				<profile.name>Preproduction</profile.name>
+			</properties>
+		</profile>
+		<!-- PRO -->
+		<profile>
+			<id>pro</id>
+			<properties>
+				<profile.id>pro</profile.id>
+				<profile.name>Production</profile.name>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<finalName>recommender-api</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Repositories -->
+	<repositories>
+		<!-- Spring Milestones -->
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
+
+		<!-- Spring Snapshots -->
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+</project>

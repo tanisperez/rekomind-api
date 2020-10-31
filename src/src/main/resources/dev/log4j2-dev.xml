@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %c{10} - %msg%n%throwable" />
+        </Console>
+        <Console name="PROPERTIES" target="SYSTEM_OUT">
+            <PatternLayout pattern="%msg%n" />
+        </Console>
+        <Console name="API" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] - %msg%n" />
+        </Console>
+    </Appenders>
+ 
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="CONSOLE" />
+        </Root>
+ 
+        <Logger name="org.springframework" level="info"/>
+        <Logger name="com.github.tanisperez.recommender.api" level="info"/>
+        <Logger name="com.github.tanisperez.recommender.api.property" additivity="false">
+        	<AppenderRef ref="PROPERTIES"/>
+        </Logger>
+        <Logger name="com.github.tanisperez.recommender.api.http" level="info" additivity="false">
+        	<AppenderRef ref="API"/>
+        </Logger>
+    </Loggers>
+</Configuration>
