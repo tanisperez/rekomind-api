@@ -17,7 +17,7 @@
             <AppenderRef ref="CONSOLE" />
         </Root>
  
-        <Logger name="org.springframework" level="info"/>
+        <Logger name="org.springframework" level="trace"/>
         <Logger name="com.github.tanisperez.recommender.api" level="info"/>
         <Logger name="com.github.tanisperez.recommender.api.property" additivity="false">
         	<AppenderRef ref="PROPERTIES"/>
