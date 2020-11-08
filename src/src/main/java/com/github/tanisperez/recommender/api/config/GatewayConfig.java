@@ -2,12 +2,19 @@ package com.github.tanisperez.recommender.api.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.GatewayFilterSpec;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class GatewayConfig {
+
+	private static final String ACCESS_CONTROL_ALLOW_ORIGIN = "*";
+	private static final String ACCESS_CONTROL_ALLOW_METHODS = "GET, POST, PUT, DELETE";
+	private static final String ACCESS_CONTROL_ALLOW_HEADERS = "Content-Type,Authorization,Cache-Control,Pragma,Expires";
+	private static final String ACCESS_CONTROL_MAX_AGE = "86400"; // seconds
+	private static final String XFRAME_OPTIONS = "DENY";
 
 	@Value("${gateway.recomendador-ws.id}")
 	private String recomendadorWSId;
@@ -36,17 +43,30 @@ public class GatewayConfig {
 		// @formatter:off
 		return builder.routes()
 			.route(predicate -> predicate.path(this.recomendadorWSPath)
-					.filters(filter -> filter.rewritePath(this.recomendadorWSFilterRegex, this.recomendadorWSFilterReplacement))
+					.filters(filter -> {
+						addResponseHeaders(filter);
+						return filter.rewritePath(this.recomendadorWSFilterRegex, this.recomendadorWSFilterReplacement);
+					})
 					.uri(this.recomendadorWSEndpoint)
 					.id(this.recomendadorWSId)
 				)
 				.route(predicate -> predicate.path(this.resourceWSPath)
-					.filters(filter -> filter.rewritePath(this.resourceWSFilterRegex, this.resourceWSFilterReplacement))
+					.filters(filter -> {
+						addResponseHeaders(filter);
+						return filter.rewritePath(this.resourceWSFilterRegex, this.resourceWSFilterReplacement);
+					})
 					.uri(this.resourceWSEndpoint)
 					.id(this.resourceWSId)
 				)
 				.build();
 		// @formatter:on
+	}
 
+	private static void addResponseHeaders(final GatewayFilterSpec filter) {
+		filter.addResponseHeader("Access-Control-Allow-Origin", ACCESS_CONTROL_ALLOW_ORIGIN);
+		filter.addResponseHeader("Access-Control-Allow-Methods", ACCESS_CONTROL_ALLOW_METHODS);
+		filter.addResponseHeader("Access-Control-Allow-Headers", ACCESS_CONTROL_ALLOW_HEADERS);
+		filter.addResponseHeader("Access-Control-Max-Age", ACCESS_CONTROL_MAX_AGE);
+		filter.addResponseHeader("X-Frame-Options", XFRAME_OPTIONS);
 	}
 }
