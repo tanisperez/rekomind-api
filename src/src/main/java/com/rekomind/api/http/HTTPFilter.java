@@ -1,4 +1,4 @@
-package com.rekominder.api.http;
+package com.rekomind.api.http;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;

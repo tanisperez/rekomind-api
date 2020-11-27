@@ -1,4 +1,4 @@
-package com.rekominder.api.config;
+package com.rekomind.api.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.route.RouteLocator;

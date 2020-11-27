@@ -1,4 +1,4 @@
-package com.rekominder.api.property;
+package com.rekomind.api.property;
 
 import java.util.Arrays;
 import java.util.stream.StreamSupport;

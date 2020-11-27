@@ -10,13 +10,13 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.rekominder</groupId>
+	<groupId>com.rekomind</groupId>
 	<artifactId>api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Rekominder API Gateway</name>
-	<description>Rekominder API Gateway</description>
+	<name>Rekomind API Gateway</name>
+	<description>Rekomind API Gateway</description>
 
 	<!-- Properties -->
 	<properties>
@@ -107,7 +107,7 @@
 	</profiles>
 
 	<build>
-		<finalName>rekominder-api</finalName>
+		<finalName>rekomind-api</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -1,4 +1,4 @@
-package com.rekominder.api.config;
+package com.rekomind.api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;

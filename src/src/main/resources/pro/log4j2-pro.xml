@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
 	<Properties>
-		<Property name="logFolder">/var/log/rekominder-api</Property>
+		<Property name="logFolder">/var/log/rekomind-api</Property>
 		<Property name="appFolder">${logFolder}/app</Property>
 		<Property name="apiFolder">${logFolder}/api</Property>
 	</Properties>
@@ -32,11 +32,11 @@
         </Root>
  
         <Logger name="org.springframework" level="info"/>
-        <Logger name="com.rekominder.api" level="info"/>
-        <Logger name="com.rekominder.api.property" additivity="false">
+        <Logger name="com.rekomind.api" level="info"/>
+        <Logger name="com.rekomind.api.property" additivity="false">
         	<AppenderRef ref="PROPERTIES"/>
         </Logger>
-        <Logger name="com.rekominder.api.http" level="info" additivity="false">
+        <Logger name="com.rekomind.api.http" level="info" additivity="false">
         	<AppenderRef ref="API"/>
         </Logger>
     </Loggers>
