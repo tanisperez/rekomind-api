@@ -1,4 +1,4 @@
-package com.github.tanisperez.recommender.api.config;
+package com.rekominder.api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;

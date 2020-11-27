@@ -1,4 +1,4 @@
-package com.github.tanisperez.recommender.api.property;
+package com.rekominder.api.property;
 
 import java.util.Arrays;
 import java.util.stream.StreamSupport;

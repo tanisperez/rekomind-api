@@ -1,4 +1,4 @@
-package com.github.tanisperez.recommender.api.http;
+package com.rekominder.api.http;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;

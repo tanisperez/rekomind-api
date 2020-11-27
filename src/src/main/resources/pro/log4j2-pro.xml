@@ -32,11 +32,11 @@
         </Root>
  
         <Logger name="org.springframework" level="info"/>
-        <Logger name="com.github.tanisperez.recommender.api" level="info"/>
-        <Logger name="com.github.tanisperez.recommender.api.property" additivity="false">
+        <Logger name="com.rekominder.api" level="info"/>
+        <Logger name="com.rekominder.api.property" additivity="false">
         	<AppenderRef ref="PROPERTIES"/>
         </Logger>
-        <Logger name="com.github.tanisperez.recommender.api.http" level="info" additivity="false">
+        <Logger name="com.rekominder.api.http" level="info" additivity="false">
         	<AppenderRef ref="API"/>
         </Logger>
     </Loggers>

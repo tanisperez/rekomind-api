@@ -10,13 +10,13 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.github.tanisperez.recommender</groupId>
+	<groupId>com.rekominder</groupId>
 	<artifactId>api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Recommender API Gateway</name>
-	<description>Recommender API Gateway</description>
+	<name>Rekominder API Gateway</name>
+	<description>Rekominder API Gateway</description>
 
 	<!-- Properties -->
 	<properties>
@@ -107,7 +107,7 @@
 	</profiles>
 
 	<build>
-		<finalName>recommender-api</finalName>
+		<finalName>rekominder-api</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
