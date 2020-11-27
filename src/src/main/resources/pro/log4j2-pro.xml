@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
 	<Properties>
-		<Property name="logFolder">/var/log/recommender-api</Property>
+		<Property name="logFolder">/var/log/rekominder-api</Property>
 		<Property name="appFolder">${logFolder}/app</Property>
 		<Property name="apiFolder">${logFolder}/api</Property>
 	</Properties>
