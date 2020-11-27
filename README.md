@@ -1,2 +1,2 @@
-# recommender-api
-Recommender API Gateway
+# Rekomind-API
+Rekomind API Gateway
