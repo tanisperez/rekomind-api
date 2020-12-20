@@ -28,6 +28,7 @@
 		
 		<!-- Dependencies version -->
 		<spring-cloud-gateway.version>2.2.5.RELEASE</spring-cloud-gateway.version>
+		<rekomind-common.version>1.0.0</rekomind-common.version>
 		
 		<apache-commons-lang3.version>3.11</apache-commons-lang3.version>
 		<apache-commons-collections4.version>4.4</apache-commons-collections4.version>
@@ -59,6 +60,30 @@
             <artifactId>spring-cloud-starter-gateway</artifactId>
             <version>${spring-cloud-gateway.version}</version>
         </dependency>
+        
+        <!-- Rekomind Common Starter -->
+		<dependency>
+			<groupId>com.rekomind.common</groupId>
+			<artifactId>audit</artifactId>
+			<version>${rekomind-common.version}</version>
+			<exclusions>
+				<!-- Spring Boot Starter Web -->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
+				</exclusion>
+				<!-- Mybatis Spring Boot Starter -->
+				<exclusion>
+					<groupId>org.mybatis.spring.boot</groupId>
+					<artifactId>mybatis-spring-boot-starter</artifactId>
+				</exclusion>
+				<!-- Spring Boot Starter Security -->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+		    		<artifactId>spring-boot-starter-security</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		
 		<!-- Apache Commons Lang 3 -->
 		<dependency>

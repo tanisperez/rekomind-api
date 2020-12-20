@@ -8,3 +8,5 @@ ______     _                   _           _         ___  ______ _____
  :: Environment :: ${info.app.env.name}
  :: Version :: ${info.app.version}
  :: Spring Boot :: ${spring-boot.version}
+ :: Rekomind Common :: ${info.app.common.version}
+ 
