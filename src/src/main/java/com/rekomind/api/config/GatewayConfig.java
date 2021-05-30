@@ -16,47 +16,47 @@ public class GatewayConfig {
 	private static final String ACCESS_CONTROL_MAX_AGE = "86400"; // seconds
 	private static final String XFRAME_OPTIONS = "DENY";
 
-	@Value("${gateway.recomendador-ws.id}")
-	private String recomendadorWSId;
-	@Value("${gateway.recomendador-ws.path}")
-	private String recomendadorWSPath;
-	@Value("${gateway.recomendador-ws.endpoint}")
-	private String recomendadorWSEndpoint;
-	@Value("${gateway.recomendador.filter.regex}")
-	private String recomendadorWSFilterRegex;
-	@Value("${gateway.recomendador.filter.replacement}")
-	private String recomendadorWSFilterReplacement;
+	@Value("${gateway.rekomind-core-ws.id}")
+	private String rekomindCoreWSId;
+	@Value("${gateway.rekomind-core-ws.path}")
+	private String rekomindCoreWSPath;
+	@Value("${gateway.rekomind-core-ws.endpoint}")
+	private String rekomindCoreWSEndpoint;
+	@Value("${gateway.rekomind-core-ws.filter.regex}")
+	private String rekomindCoreWSFilterRegex;
+	@Value("${gateway.rekomind-core-ws.filter.replacement}")
+	private String rekomindCoreWSFilterReplacement;
 
-	@Value("${gateway.resource-ws.id}")
-	private String resourceWSId;
-	@Value("${gateway.resource-ws.path}")
-	private String resourceWSPath;
-	@Value("${gateway.resource-ws.endpoint}")
-	private String resourceWSEndpoint;
-	@Value("${gateway.resource-ws.filter.regex}")
-	private String resourceWSFilterRegex;
-	@Value("${gateway.resource-ws.filter.replacement}")
-	private String resourceWSFilterReplacement;
+	@Value("${gateway.rekomind-resource-ws.id}")
+	private String rekomindResourceWSId;
+	@Value("${gateway.rekomind-resource-ws.path}")
+	private String rekomindResourceWSPath;
+	@Value("${gateway.rekomind-resource-ws.endpoint}")
+	private String rekomindResourceWSEndpoint;
+	@Value("${gateway.rekomind-resource-ws.filter.regex}")
+	private String rekomindResourceWSFilterRegex;
+	@Value("${gateway.rekomind-resource-ws.filter.replacement}")
+	private String rekomindResourceWSFilterReplacement;
 
 	@Bean
 	public RouteLocator createRoutes(final RouteLocatorBuilder builder) {
 		// @formatter:off
 		return builder.routes()
-			.route(predicate -> predicate.path(this.recomendadorWSPath)
+			.route(predicate -> predicate.path(this.rekomindCoreWSPath)
 					.filters(filter -> {
 						addResponseHeaders(filter);
-						return filter.rewritePath(this.recomendadorWSFilterRegex, this.recomendadorWSFilterReplacement);
+						return filter.rewritePath(this.rekomindCoreWSFilterRegex, this.rekomindCoreWSFilterReplacement);
 					})
-					.uri(this.recomendadorWSEndpoint)
-					.id(this.recomendadorWSId)
+					.uri(this.rekomindCoreWSEndpoint)
+					.id(this.rekomindCoreWSId)
 				)
-				.route(predicate -> predicate.path(this.resourceWSPath)
+				.route(predicate -> predicate.path(this.rekomindResourceWSPath)
 					.filters(filter -> {
 						addResponseHeaders(filter);
-						return filter.rewritePath(this.resourceWSFilterRegex, this.resourceWSFilterReplacement);
+						return filter.rewritePath(this.rekomindResourceWSFilterRegex, this.rekomindResourceWSFilterReplacement);
 					})
-					.uri(this.resourceWSEndpoint)
-					.id(this.resourceWSId)
+					.uri(this.rekomindResourceWSEndpoint)
+					.id(this.rekomindResourceWSId)
 				)
 				.build();
 		// @formatter:on

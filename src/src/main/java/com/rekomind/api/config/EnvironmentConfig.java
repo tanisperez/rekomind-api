@@ -12,7 +12,7 @@ import com.rekomind.common.audit.property.PropertyLogger;
  * @author Estanislao Pérez Nartallo
  */
 @Configuration
-@PropertySource("classpath:/${info.app.env.id}/application-${info.app.env.id}.properties")
+@PropertySource(value = "classpath:/${info.app.env.id}/application-${info.app.env.id}.properties")
 public class EnvironmentConfig {
 
 	/**
