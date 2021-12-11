@@ -29,6 +29,7 @@
 		<!-- Dependencies version -->
 		<spring-cloud-gateway.version>2.2.5.RELEASE</spring-cloud-gateway.version>
 		<rekomind-common.version>1.7.1</rekomind-common.version>
+		<log4j2.version>2.15.0</log4j2.version>
 	</properties>
 
 	<dependencies>
