@@ -1,4 +1,4 @@
-# Rekomind-API
+# rekomind-api (deprecated)
 Rekomind API Gateway
 
 ```
