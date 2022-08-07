@@ -1,5 +1,6 @@
 # rekomind-api (deprecated)
-Rekomind API Gateway
+
+This was the legacy Rekomind API Gateway used in [rekomind](https://rekomind.com).
 
 ```
 docker build --no-cache -t rekomind-api:1.2.0 .
